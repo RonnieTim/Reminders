@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from .models import Reminder
+from .serializers import ReminderSerializer
+
+
+class ReminderViewSet(ModelViewSet):
+    """Reminder View Set."""
+
+    serializer_class = ReminderSerializer
+    queryset = Reminder.objects.all()
